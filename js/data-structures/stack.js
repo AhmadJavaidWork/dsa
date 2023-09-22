@@ -43,7 +43,7 @@ class Stack {
       curr = curr.next;
       stack = `${stack} -> ${curr.value}`;
     }
-    console.log(stack);
+    console.log(`[${stack}]`);
   }
 }
 
@@ -58,3 +58,5 @@ stack.push(13);
 console.log(stack.pop());
 console.log(stack.peek());
 stack.print();
+
+module.exports = Stack;
