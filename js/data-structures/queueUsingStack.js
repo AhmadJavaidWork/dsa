@@ -1,9 +1,7 @@
-const Stack = require("./stack");
-
 class Queue {
   constructor() {
-    this.s1 = new Stack();
-    this.s2 = new Stack();
+    this.s1 = [];
+    this.s2 = [];
   }
 
   enqueue(value) {
@@ -24,19 +22,21 @@ class Queue {
   }
 
   peek() {
-    return this.s1.peek();
+    return this.s1[this.s1.length - 1];
   }
 
   print() {
-    if (this.length === 0) {
+    if (this.s1.length === 0) {
       console.log([]);
       return;
     }
-    let curr = this.s1.head;
-    let queue = `${curr.value}`;
-    while (curr.next) {
-      curr = curr.next;
-      queue = `${queue} -> ${curr.value}`;
+    let curr = this.s1[0];
+    let queue = `${curr}`;
+    let counter = 1;
+    while (counter < this.s1.length) {
+      curr = this.s1[counter];
+      queue = `${curr} -> ${queue}`;
+      counter++;
     }
     console.log(`[${queue}]`);
   }
