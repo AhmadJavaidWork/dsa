@@ -77,7 +77,11 @@ class SinglyLinkedList {
     let node = null;
     if (index === 0) {
       node = this.head;
-      this.head = node.next;
+      if (this.length === 1) {
+        this.head = this.tail = null;
+      } else {
+        this.head = node.next;
+      }
     } else {
       const parent = this._traverseToIndex(index - 1);
       node = parent.next;
