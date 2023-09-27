@@ -30,7 +30,7 @@ Node *create_node(int value)
 void validate_index(int length, int index)
 {
   assert(index > -1);
-  assert(index <= length);
+  assert(index < length);
 }
 
 Node *traverse_to_index(SinglyLinkedList *list, int index)
@@ -82,7 +82,7 @@ void prepend(SinglyLinkedList *list, int value)
 
 void insert_at(SinglyLinkedList *list, int index, int value)
 {
-  validate_index(list->length, index);
+  validate_index(list->length + 1, index);
 
   if (index == 0)
   {
