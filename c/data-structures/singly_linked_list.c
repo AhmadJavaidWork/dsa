@@ -270,4 +270,5 @@ int main(void)
   reverse(&list);
   print(&list);
   free_linked_list(&list);
+  return 0;
 }
