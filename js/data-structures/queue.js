@@ -26,8 +26,13 @@ class Queue {
   dequeue() {
     if (this.length === 0) return;
     const node = this.head;
-    this.head = node.next;
-    node.next = null;
+    if (this.length === 1) {
+      this.head = this.tail = null;
+    } else {
+      this.head = this.head.next;
+      node.next = null;
+    }
+    this.length--;
     return node.value;
   }
 
